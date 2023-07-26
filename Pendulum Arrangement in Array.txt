@@ -1,0 +1,39 @@
+        ArrayList<Integer>lst1 = new ArrayList<>();
+        ArrayList<Integer>lst2 = new ArrayList<>();
+        ArrayList<Integer>lst3 = new ArrayList<>();
+        Arrays.sort(arr);
+        
+        if(n%2==0)
+        {
+            for(int i=n-2;i>=0;i=i-2)
+            {
+                lst2.add(arr[i]);
+            }
+            for(int i=1;i<n;i=i+2)
+            {
+                lst1.add(arr[i]);
+            }
+            lst3.addAll(lst2);
+            lst3.addAll(lst1);
+        }
+        else
+        {
+            for(int i=n-1;i>=0;i=i-2)
+            {
+                lst2.add(arr[i]);
+            }
+            for(int i=1;i<n;i=i+2)
+            {
+                lst1.add(arr[i]);
+            }
+            lst3.addAll(lst2);
+            lst3.addAll(lst1);
+        }
+        int i=0;
+        int brr[] = new int[n];
+        for(Integer j:lst3)
+        {
+            brr[i] = j;
+            i++;
+        }
+        return brr;
