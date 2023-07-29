@@ -1,0 +1,40 @@
+class Tree
+{
+     static void inorder(Node root,ArrayList <Integer> list)
+     {
+        if(root == null) 
+        {
+            return;
+        }
+        
+        inorder(root.left,list);
+        list.add(root.data);
+        inorder(root.right,list);
+     }
+    
+    
+    
+    public static float findMedian(Node root)
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+        inorder(root,list);
+        int n = list.size();
+        
+        if(n%2 !=0)
+        {
+            int ans = list.get(n/2);
+            return (float)ans;
+        }
+        else if(n%2 == 0)
+        {
+            int left = (n-1) /2;
+            int right = (n+1) /2;
+            float ans1 =list.get(left);
+            float ans2 = list.get(right);
+            return (float)((ans1+ans2)/2);
+         
+        }
+        return -1;
+        
+    }
+}
